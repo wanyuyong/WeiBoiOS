@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *pic_urls;
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) Twitter *original_twitter;
+@property (nonatomic) CGFloat height;
 
 +(Twitter *)objFormDictionary:(NSDictionary *)dic;
 

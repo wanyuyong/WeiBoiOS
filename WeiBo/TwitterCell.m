@@ -8,6 +8,7 @@
 
 #import "TwitterCell.h"
 #import "Masonry.h"
+#import "NSString+Font.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation TwitterCell
@@ -123,7 +124,7 @@
             make.left.and.right.equalTo(self.contentView);
             make.bottom.equalTo(self.contentView);
             make.top.mas_equalTo(_originalArea.mas_bottom);
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 35));
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, BOTTOM_BAR_HEIGHT));
         }];
         UIView *lineView = [[UIView alloc] init];
         lineView.backgroundColor = COLOR_LIGHT_BG;
@@ -220,7 +221,7 @@
         if (twitter.original_twitter.bmiddle_pic) {
             [_originalPicView sd_setImageWithURL:[NSURL URLWithString:twitter.original_twitter.bmiddle_pic]];
              _originalPicView.hidden = NO;
-            CGFloat originalPicW = SCREEN_WIDTH - (PADDING * 4);
+            CGFloat originalPicW = SCREEN_WIDTH - (PADDING * 2);
             [_originalPicView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(originalPicW, originalPicW * IMG_SCALE));
                 make.bottom.equalTo(_originalArea).offset(-PADDING);

@@ -4,14 +4,12 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - UITableView+FDTemplateLayoutCell (1.4)
   - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
   - Masonry
   - MBProgressHUD
   - SDWebImage
-  - UITableView+FDTemplateLayoutCell
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
@@ -27,9 +25,8 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: 1e860d733ab8b6dc55355d859822180d2ca08813
+PODFILE CHECKSUM: d4468fea4576984f6006a8608204b97db0cf5984
 
 COCOAPODS: 1.1.1

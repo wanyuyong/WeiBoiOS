@@ -35,7 +35,7 @@
     if (retweeted_status) {
         twitter.original_twitter = [Twitter objFormDictionary:retweeted_status];
     }
-
+    twitter.height = CELL_HEIGHT_SUSPENSIVE;
     return twitter;
 }
 

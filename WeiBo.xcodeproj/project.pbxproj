@@ -16,6 +16,7 @@
 		702617251DC1DAB600F20AD2 /* Twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 702617241DC1DAB600F20AD2 /* Twitter.m */; };
 		7026172B1DC1DF7200F20AD2 /* TwitterSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 7026172A1DC1DF7200F20AD2 /* TwitterSet.m */; };
 		707922361DBF4B3A00C9DDC0 /* TimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707922351DBF4B3A00C9DDC0 /* TimeLineViewController.m */; };
+		7081FC581E0AA54300DEF4A2 /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 7081FC571E0AA54300DEF4A2 /* NSString+Font.m */; };
 		7094EE461DBA0B2700641020 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094EE451DBA0B2700641020 /* BaseViewController.m */; };
 		7094EE491DBA0B3D00641020 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7094EE481DBA0B3D00641020 /* LoginViewController.m */; };
 		70990B071DC05F9A00F2C7F9 /* WBHttpRequest+TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 70990B061DC05F9A00F2C7F9 /* WBHttpRequest+TimeLine.m */; };
@@ -68,6 +69,8 @@
 		703C30631DC1AB5600FF7F6B /* ApiConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiConstant.h; sourceTree = "<group>"; };
 		707922341DBF4B3A00C9DDC0 /* TimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineViewController.h; sourceTree = "<group>"; };
 		707922351DBF4B3A00C9DDC0 /* TimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineViewController.m; sourceTree = "<group>"; };
+		7081FC561E0AA54300DEF4A2 /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
+		7081FC571E0AA54300DEF4A2 /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
 		7094EE411DB9C38C00641020 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7094EE441DBA0B2700641020 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7094EE451DBA0B2700641020 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 				70F5216C1DC8A9C20039B961 /* NSDictionary+JSON.m */,
 				70F5216E1DC8AA800039B961 /* JSONUtility.h */,
 				70F5216F1DC8AA800039B961 /* JSONUtility.m */,
+				7081FC561E0AA54300DEF4A2 /* NSString+Font.h */,
+				7081FC571E0AA54300DEF4A2 /* NSString+Font.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				700D92E01DE69194002AEF75 /* MusicPlayViewController.m in Sources */,
 				7094EE461DBA0B2700641020 /* BaseViewController.m in Sources */,
 				702617221DC1C2C200F20AD2 /* User.m in Sources */,
+				7081FC581E0AA54300DEF4A2 /* NSString+Font.m in Sources */,
 				7004C0601DE5B214007E6EC2 /* TestViewController.m in Sources */,
 				700D92E51DE69A8B002AEF75 /* MusicPlayControlView.m in Sources */,
 				70A69C4D1DD1BE38005F4F60 /* YALSunnyRefreshControl.m in Sources */,

@@ -10,9 +10,9 @@
 #import "WBHttpRequest+TimeLine.h"
 #import "TwitterSet.h"
 #import "TwitterCell.h"
-#import "UITableView+FDTemplateLayoutCell.h"
 #import "Masonry.h"
 #import "JSONUtility.h"
+#import "NSString+Font.h"
 #import "YALSunnyRefreshControl.h"
 #import "MusicPlayViewController.h"
 
@@ -40,17 +40,17 @@
     
     _twitters = [NSMutableArray arrayWithCapacity:COUNT];
     _tableView = [[UITableView alloc] init];
-    _tableView.backgroundColor = [UIColor redColor];
     _tableView.separatorInset = UIEdgeInsetsZero;
     _tableView.separatorColor = COLOR_LIGHT_BG;
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    [_tableView registerClass:[TwitterCell class] forCellReuseIdentifier:@"identifer"];
+    [_tableView registerClass:[TwitterCell class] forCellReuseIdentifier:@"TwitterCell"];
     [self.view addSubview:_tableView];
     
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.left.and.right.and.bottom.equalTo(self.view);
     }];
+    
     
     [self setFootView];
     
@@ -128,14 +128,10 @@
     
     [WBHttpRequest requestForFriendTimeLine:kAccessToken sinceId:0 maxId:maxId count:COUNT page:page baseApp:0 feature:0 trim_user:0 withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
         
-        NSLog(@"magic --当前线程 ---------------------------------  %@",[NSThread currentThread]);
-        
         if(!error){
             TwitterSet *set = [TwitterSet objFormDictionary:result];
             
             [self runOnMainThread:^{
-                
-                NSLog(@"magic ～～当前线程 ---------------------------------  %@",[NSThread currentThread]);
                 
                 if (page == PAGE_START) {
                     [_twitters removeAllObjects];
@@ -173,7 +169,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TwitterCell *twitterCell = [tableView dequeueReusableCellWithIdentifier:@"identifer" forIndexPath:indexPath];
+    TwitterCell *twitterCell = [tableView dequeueReusableCellWithIdentifier:@"TwitterCell" forIndexPath:indexPath];
     [twitterCell setTwitter:_twitters[indexPath.row]];
     return twitterCell;
 }
@@ -181,19 +177,30 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
-    CGFloat h = [tableView fd_heightForCellWithIdentifier:@"identifer" cacheByIndexPath:indexPath configuration:^(id cell) {
-        // configurations
-        TwitterCell *twitterCell = (TwitterCell *)cell;
-        [twitterCell setTwitter:_twitters[indexPath.row]];
-    }];
-    
-    return h;
+    Twitter *twitter = _twitters[indexPath.row];
+    if(twitter.height == CELL_HEIGHT_SUSPENSIVE) {
+        twitter.height = PADDING + AVATAR_WIDTH + PADDING + [twitter.text heightWhitFont:MEDIUM_FONT_THIN andWidth:_tableView.frame.size.width - PADDING * 2];
+        CGFloat picW = SCREEN_WIDTH - (PADDING * 2);
+        CGFloat picH = picW * IMG_SCALE;
+        if (twitter.bmiddle_pic) {
+            twitter.height += (PADDING + picH);
+        }
+        if (twitter.original_twitter) {
+            twitter.height += (PADDING + PADDING + [twitter.original_twitter.user.name heightWhitFont:MEDIUM_FONT_THIN andWidth:_tableView.frame.size.width - PADDING * 2] + PADDING + [twitter.original_twitter.text heightWhitFont:MEDIUM_FONT_THIN andWidth:_tableView.frame.size.width - PADDING * 2]);
+            if (twitter.original_twitter.bmiddle_pic) {
+                twitter.height += (PADDING + picH);
+            }
+            twitter.height += PADDING;
+        } else {
+            twitter.height += PADDING;
+        }
+        twitter.height += BOTTOM_BAR_HEIGHT;
+    }
+    return twitter.height;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height){
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.y + scrollView.frame.size.height  >= scrollView.contentSize.height) {
         [self loadMore];
     }
 }

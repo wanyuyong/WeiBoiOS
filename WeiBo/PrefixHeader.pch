@@ -73,6 +73,8 @@
 #define AVATAR_WIDTH            50
 #define PADDING                 10
 #define IMG_SCALE               1.0f
+#define BOTTOM_BAR_HEIGHT       35
+#define CELL_HEIGHT_SUSPENSIVE    -1
 
 
 

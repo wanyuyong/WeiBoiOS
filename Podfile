@@ -1,6 +1,5 @@
 target 'WeiBo' do
 
-pod 'UITableView+FDTemplateLayoutCell'
 pod 'MBProgressHUD'
 pod 'Masonry'
 pod 'SDWebImage'
